@@ -63,7 +63,7 @@ public class SlackBuilder {
 		headers = new HashMap<String, String>();
 	}
 
-	public JsonObject build() throws IOException{
+	public JsonObject build() throws IOException {
 		this.headers.put("Authorization", authorization);
 		
 		Connection.Response response = Jsoup.connect(baseUrl + url.toString())

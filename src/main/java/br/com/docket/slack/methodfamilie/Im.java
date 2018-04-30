@@ -12,7 +12,6 @@ public class Im {
      * 
      * @param user - String (Id do usuario a ser criado o channel)
 	 * @throws IOException 
-     * @throws InvalidAttributeValueException 
      */
 	public ImOpen open(String user){
 		return new ImOpen(user);

@@ -13,7 +13,6 @@ public class Chat {
      * @param channel - String (Id do channel a ser enviada a mensagem)
      * @param text - String (O texto a enviado na mensagem)
 	 * @throws IOException 
-     * @throws InvalidAttributeValueException 
      */
 	public ChatPostMessage postMessage(String channel, String text) {
 		return new ChatPostMessage(channel, text);
