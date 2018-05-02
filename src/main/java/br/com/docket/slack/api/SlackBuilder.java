@@ -1,5 +1,6 @@
 package br.com.docket.slack.api;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,10 +18,14 @@ import com.google.gson.JsonObject;
 public class SlackBuilder {
 	private String authorization;
 	private String baseUrl;
+	
 	private StringBuilder url;
 	private Method method;
 	private List<Connection.KeyVal> params;
 	private Map<String, String> headers;
+	
+	private FileInputStream file;
+	private String fileName;
 	
 	public SlackBuilder() {
 		resetValues();
@@ -56,23 +61,37 @@ public class SlackBuilder {
 		return this;
 	}
 	
+	public SlackBuilder file(FileInputStream file, String name) {
+		this.file = file;
+		this.fileName = name;
+		return this;
+	}
+	
 	private void resetValues() {
 		url = new StringBuilder();
 		method = Connection.Method.GET;
 		params = new ArrayList<Connection.KeyVal>();
 		headers = new HashMap<String, String>();
+		file = null;
+		fileName = null;
 	}
 
 	public JsonObject build() throws IOException {
 		this.headers.put("Authorization", authorization);
 		
-		Connection.Response response = Jsoup.connect(baseUrl + url.toString())
-						                .ignoreContentType(true)
-						                .ignoreHttpErrors(true)
-						                .headers(headers)
-						                .method(method)
-						                .data(params)
-						                .execute();
+		Connection connection = Jsoup.connect(baseUrl + url.toString())
+				                .ignoreContentType(true)
+				                .ignoreHttpErrors(true)
+				                .headers(headers)
+				                .method(method)
+				                .data(params);
+		
+		if(this.file != null) {
+			connection.data("file", fileName, file);
+		}
+		
+		Connection.Response response = connection.execute();
+			                
 		resetValues();
 
         return new Gson().fromJson(response.body(), JsonObject.class);
@@ -93,6 +112,10 @@ public class SlackBuilder {
 		builder.append(params);
 		builder.append(", headers=");
 		builder.append(headers);
+		builder.append(", file=");
+		builder.append(file);
+		builder.append(", fileName=");
+		builder.append(fileName);
 		builder.append("]");
 		return builder.toString();
 	}

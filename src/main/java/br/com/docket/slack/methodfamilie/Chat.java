@@ -1,5 +1,7 @@
 package br.com.docket.slack.methodfamilie;
 
+import org.jsoup.Connection.Method;
+
 import br.com.docket.slack.api.WebAPI;
 
 public class Chat {
@@ -20,6 +22,7 @@ public class Chat {
 	
 	public class ChatPostMessage extends AbstractMethod {
 		public ChatPostMessage(String channel, String text) {
+			WebAPI.slackBuilder.method(Method.POST);
 			WebAPI.slackBuilder.addParam("channel", channel);
 			WebAPI.slackBuilder.addParam("text", text);
 			WebAPI.slackBuilder.url(".postMessage");

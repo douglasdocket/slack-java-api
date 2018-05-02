@@ -1,5 +1,7 @@
 package br.com.docket.slack.methodfamilie;
 
+import org.jsoup.Connection.Method;
+
 import br.com.docket.slack.api.WebAPI;
 
 public class Im {
@@ -19,6 +21,7 @@ public class Im {
 
 	public class ImOpen extends AbstractMethod {
 		public ImOpen(String user) {
+			WebAPI.slackBuilder.method(Method.POST);
 			WebAPI.slackBuilder.addParam("user", user);
 			WebAPI.slackBuilder.url(".open");
 		}
