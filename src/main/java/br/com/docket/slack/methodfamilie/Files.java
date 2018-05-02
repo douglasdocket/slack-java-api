@@ -2,6 +2,7 @@ package br.com.docket.slack.methodfamilie;
 
 import java.io.FileInputStream;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Connection.Method;
 
 import br.com.docket.slack.api.WebAPI;
@@ -32,7 +33,9 @@ public class Files {
 		}
 
 		public FilesUpload file(FileInputStream file, String name) {
-			WebAPI.slackBuilder.file(file, name);
+			if(file != null && !StringUtils.isEmpty(name)) {
+				WebAPI.slackBuilder.file(file, name);
+			}
 			return this;
 		}
 
