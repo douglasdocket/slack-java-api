@@ -6,6 +6,7 @@ import br.com.docket.slack.methodfamilie.Im;
 import br.com.docket.slack.methodfamilie.Users;
 
 public class WebAPI {
+
 	public static SlackBuilder slackBuilder;
 	
 	public WebAPI(String authorization) {

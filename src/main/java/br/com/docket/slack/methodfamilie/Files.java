@@ -8,6 +8,7 @@ import org.jsoup.Connection.Method;
 import br.com.docket.slack.api.WebAPI;
 
 public class Files {
+
 	public Files() {
 		WebAPI.slackBuilder.url("files");
 	}

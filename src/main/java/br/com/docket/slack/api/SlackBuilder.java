@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class SlackBuilder {
+
 	private String authorization;
 	private String baseUrl;
 	

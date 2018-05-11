@@ -4,7 +4,10 @@ import org.jsoup.Connection.Method;
 
 import br.com.docket.slack.api.WebAPI;
 
+import java.io.IOException;
+
 public class Chat {
+
 	public Chat() {
 		WebAPI.slackBuilder.url("chat");
 	}
@@ -14,7 +17,7 @@ public class Chat {
      * 
      * @param channel - String (Id do channel a ser enviada a mensagem)
      * @param text - String (O texto a enviado na mensagem)
-	 * @throws IOException 
+	 * @throws IOException
      */
 	public ChatPostMessage postMessage(String channel, String text) {
 		return new ChatPostMessage(channel, text);

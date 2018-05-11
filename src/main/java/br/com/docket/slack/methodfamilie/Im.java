@@ -4,7 +4,10 @@ import org.jsoup.Connection.Method;
 
 import br.com.docket.slack.api.WebAPI;
 
+import java.io.IOException;
+
 public class Im {
+
 	public Im() {
 		WebAPI.slackBuilder.url("im");
 	}
@@ -13,7 +16,7 @@ public class Im {
      * Método para criar uma conversa do sistema com o usuario
      * 
      * @param user - String (Id do usuario a ser criado o channel)
-	 * @throws IOException 
+	 * @throws IOException
      */
 	public ImOpen open(String user){
 		return new ImOpen(user);

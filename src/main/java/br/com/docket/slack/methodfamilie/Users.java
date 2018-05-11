@@ -5,6 +5,7 @@ import java.io.IOException;
 import br.com.docket.slack.api.WebAPI;
 
 public class Users {
+
 	public Users() {
 		WebAPI.slackBuilder.url("users");
 	}
