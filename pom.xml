@@ -12,7 +12,7 @@
 	<description>A java client to integrate with Slack API</description>
 
 	<properties>
-		<local.repository.path>/Users/cartorios/Development/douglasdocket/docket-io</local.repository.path>
+		<local.repository.path>/Users/cartorios/development/douglasdocket/docket-io</local.repository.path>
 	</properties>
 	
 	<dependencies>
