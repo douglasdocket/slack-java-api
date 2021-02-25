@@ -1,6 +1,7 @@
 package br.com.docket.slack.api;
 
 import br.com.docket.slack.methodfamilie.Chat;
+import br.com.docket.slack.methodfamilie.Conversations;
 import br.com.docket.slack.methodfamilie.Files;
 import br.com.docket.slack.methodfamilie.Im;
 import br.com.docket.slack.methodfamilie.Users;
@@ -18,7 +19,15 @@ public class WebAPI {
 	public Chat chat() {
 		return new Chat();
 	}
-	
+
+	/**
+	 * Método para obter funções de IM do slack
+	 *
+	 * @deprecated depois da versão 0.0.2, substituido por {@link #conversations()}
+	 *
+	 * @return {@link Im}
+	 */
+	@Deprecated
 	public Im im() {
 		return new Im();
 	}
@@ -29,5 +38,9 @@ public class WebAPI {
 	
 	public Users users() {
 		return new Users();
+	}
+
+	public Conversations conversations() {
+		return new Conversations();
 	}
 }

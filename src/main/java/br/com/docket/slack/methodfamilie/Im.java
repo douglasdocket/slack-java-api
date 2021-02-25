@@ -11,14 +11,17 @@ public class Im {
 	public Im() {
 		WebAPI.slackBuilder.url("im");
 	}
-	
-    /**
-     * Método para criar uma conversa do sistema com o usuario
-     * 
-     * @param user - String (Id do usuario a ser criado o channel)
+
+	/**
+	 * Método para criar uma conversa com o usuario
+	 *
+	 * @deprecated depois da versão 0.0.2, substituido por {@link Conversations#open(String)}
+	 *
+	 * @param user String (Id do usuario a ser criado o channel)
 	 * @throws IOException
-     */
-	public ImOpen open(String user){
+	 * */
+	@Deprecated
+	public ImOpen open(String user) {
 		return new ImOpen(user);
 	}
 
