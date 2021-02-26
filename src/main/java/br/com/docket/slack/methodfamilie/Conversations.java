@@ -25,7 +25,7 @@ public class Conversations {
 		public ConversationsOpen(String user) {
 			WebAPI.slackBuilder.method(Method.POST);
 			WebAPI.slackBuilder.url(".open");
-			WebAPI.slackBuilder.addParam("user", user);
+			WebAPI.slackBuilder.addParam("users", user);
 		}
 	
 		public ConversationsOpen includeLocale(Boolean includeLocale) {
