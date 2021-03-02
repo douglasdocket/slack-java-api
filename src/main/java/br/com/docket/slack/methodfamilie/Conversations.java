@@ -24,8 +24,8 @@ public class Conversations {
 	public class ConversationsOpen extends AbstractMethod {
 		public ConversationsOpen(String user) {
 			WebAPI.slackBuilder.method(Method.POST);
-			WebAPI.slackBuilder.url(".open");
 			WebAPI.slackBuilder.addParam("users", user);
+			WebAPI.slackBuilder.url(".open");
 		}
 	
 		public ConversationsOpen includeLocale(Boolean includeLocale) {
